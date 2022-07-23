@@ -26,9 +26,9 @@ public class LeetcodeApp {
             System.out.println("请输入数据结果文件名:");
             String outFileName = sc.nextLine();
             BufferedWriter writer = new BufferedWriter(new FileWriter(outFileName));
-            writer.write("用户名, 解题数\n");
+            writer.write("用户名, 简单, 中等, 困难, 总解题数\n");
             for (QuestionAccept data : list) {
-                String line = data.getUserId() + "," + data.getTotal() + "\n";
+                String line = data.getUserId() + "," +  data.getEasy() + ", " + data.getMid() + ", " + data.getHard() + ", " + data.getTotal() + ", " + "\n";
                 writer.write(line);
             }
             reader.close();
@@ -39,7 +39,6 @@ public class LeetcodeApp {
         } catch (IOException e) {
             System.out.println("写入数据失败");
         } finally {
-
             System.out.println("exit");
             System.exit(0);
         }
